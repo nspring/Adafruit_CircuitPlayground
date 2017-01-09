@@ -78,8 +78,8 @@ void Adafruit_CPlay_Speaker::playSound(
      "brne audioDelayLoop"            "\n\t" // if(counter) goto audioDelay
     "sbiw  %[bytesToGo], 1"           "\n\t" // bytesToGo--
     "brne  audioSampleLoop"           "\n"   // if(bytesToGo) goto audioSample
-   : [x]         "+r" (x),
-     [counter]   "+r" (counter),
+   : [x]         "=r" (x),          // was +r, but is effectively just written
+     [counter]   "=r" (counter),    // was +r, but is effectively just written
      [bytesToGo] "+w" (bytesToGo)
    : [data]       "e" (data),
      [pwmReg]     "M" (_SFR_ADDR(OCR4A)),

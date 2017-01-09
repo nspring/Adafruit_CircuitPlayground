@@ -17,7 +17,7 @@
 // disabled while this runs.
 
 int Adafruit_CPlay_Mic::peak(uint16_t ms) {
-  uint8_t  admux_save, adcsra_save, adcsrb_save, timsk0_save, channel;
+  uint8_t  admux_save, adcsra_save, adcsrb_save, channel;
   uint16_t i, nSamples;
   int16_t  adc, adcMin, adcMax;
 
@@ -78,7 +78,7 @@ int Adafruit_CPlay_Mic::peak(uint16_t ms) {
 // handling of millis() and micros()), this isn't likely to lose readings.
 
 void Adafruit_CPlay_Mic::capture(int16_t *buf, uint8_t nSamples) {
-  uint8_t admux_save, adcsra_save, adcsrb_save, timsk0_save, channel;
+  uint8_t admux_save, adcsra_save, adcsrb_save, channel;
   int16_t adc;
 
   channel     = analogPinToChannel(4); // Pin A4 to ADC channel
